@@ -6,6 +6,7 @@ function hide_top_bar(){
 	// Add button that shows the hidden stuff.
 	var btn = document.createElement("button");
 	btn.id = "show-masthead";
+	btn.style["z-index"] = "9999999999";
 	btn.style["position"] = "fixed";
 	btn.style["top"] = "0px";
 	btn.style["left"] = "5px";
@@ -18,7 +19,7 @@ function hide_top_bar(){
 		show_top_bar();
 	};
 	// Add to body.
-	document.body.appendChild(btn); 
+	document.body.appendChild(btn);
 }
 hide_top_bar();
 function  show_top_bar(){
@@ -28,7 +29,7 @@ function  show_top_bar(){
 	// Add button that shows the hidden stuff.
 	var btn = document.createElement("button");
 	btn.id = "hide-masthead";
-	btn.style["z-index"] = "2147483647";
+	btn.style["z-index"] = "9999999999";
 	btn.style["position"] = "fixed";
 	btn.style["top"] = "45px";
 	btn.style["left"] = "5px";
@@ -42,4 +43,27 @@ function  show_top_bar(){
 	};
 	// Add to body.
 	document.body.appendChild(btn); 
+}
+
+
+function fill_client_area(){
+	
+	var e = document.getElementById("player-api");
+	e.style["left"] = "0";
+	e.style["top"] = "0";
+	e.style["width"] = "100%";
+	e.style["height"] = "100%";
+
+	e.style["z-index"] = "999";
+	e.style["position"] = "fixed";
+
+
+	var e = document.getElementsByClassName("video-stream html5-main-video")[0];
+	e.style["class"] = "video-stream html5-main-video";
+	e.style["width"] = "100%";
+	e.style["height"] = "100%";
+
+	//document.getElementsByTagName("H1")[0].style.removeAttribute("z-index");
+	//document.getElementsByTagName("H1")[0].style["z-index"] = "";
+	
 }
